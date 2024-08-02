@@ -1,6 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-
+import Home from './component/Home';
+import About from './component/About'
+import Users from './component/Users';
+import User from './component/User';
 function App() { 
   return ( 
     <Router>
@@ -14,22 +17,15 @@ function App() {
         </nav> 
         {/*Routes: A element looks through its children elements and renders the first one that matches the current URL. */}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/users" element={<Users />} />
+          <Route path="/"  exact Component={Home} />
+          <Route path="/about" Component={About} />
+          <Route path="/users" Component={Users} />
+          <Route path="/user/:id" Component={User} />
         </Routes>
       </div> 
     </Router>
   ); 
 }
 
-function Home() { 
-  return <h2>Home</h2>; } 
-  
-function About() { 
-  return <h2>About</h2>; } 
-  
-function Users() { 
-  return <h2>Users</h2>; }
 
 export default App;
