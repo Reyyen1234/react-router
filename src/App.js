@@ -1,5 +1,5 @@
 import './App.css';
-import { Formik, Field, Form } from 'formik';
+import SignUp from './component/SignUp';
 // import { BrowserRouter as Router, Route, Link, Routes,NavLink } from 'react-router-dom';
 // import Home from './component/Home';
 // import About from './component/About'
@@ -7,42 +7,15 @@ import { Formik, Field, Form } from 'formik';
 // import User from './component/User';
 // import Error404 from './component/Error404'
 function App() { 
-  return ( 
-   <div>
-      <h1>Sign Up</h1>
-    <Formik
-      initialValues={{
-        firstName: '',
-        lastName: '',
-        email: '',
-      }}
-      onSubmit={async (values) => {
-        await new Promise((r) => setTimeout(r, 500));
-        alert(JSON.stringify(values, null, 2));
-      }}
-    >
-      <Form>
-        {/* initialValues icindki keywordlarimiz fielda kullanmamiz lazim aksi takdirde bir sey girmemize izin vermez */}
-        <label htmlFor="firstName">First Name</label>
-        <Field id="firstName" name="firstName" placeholder="Jane" />
-
-        <label htmlFor="lastName">Last Name</label>
-        <Field id="lastName" name="lastName" placeholder="Doe" />
-
-        <label htmlFor="email">Email</label>
-        <Field
-          id="email"
-          name="email"
-          placeholder="jane@acme.com"
-          type="email"
-        />
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
-   </div>
-  ); 
+  return(
+    <div>
+      <SignUp />
+    </div>
+  )
+ 
+  
+ 
 }
-
 
 export default App;
   /*  <li><NavLink activeStyle={{backgroundColor:"black", color:"#fff"}} to="/" >Home</NavLink></li> 
@@ -66,4 +39,105 @@ export default App;
                 <Route path="*" Component={Error404} />
               </Routes>
             </div> 
-          </Router> */
+          </Router>
+          return ( 
+            <div>
+               <h1>Sign Up</h1>
+            {/*  <Formik
+               initialValues={{
+                 firstName: '',
+                 lastName: '',
+                 email: '',
+                 gender:""
+               }}
+               onSubmit={ (values) => {
+                 console.log(values)
+               }}
+             > }
+               { handleSubmit ekldikten sonra artik guncelma isinden kurtulduk ve inputleri gormeyi basldik 
+               ama ekledigim verileri goremiyorum bu sorunu cozmek icin handleChange ekledik}
+               {({handleSubmit,handleChange,values})=>(
+                 <form onSubmit={handleSubmit}>
+                 { initialValues icindki keywordlarimiz fielda kullanmamiz lazim aksi takdirde bir sey girmemize izin vermez }
+                 <label htmlFor="firstName">First Name</label>
+                 <input  name="firstName" onChange={handleChange}/>
+                  <br/>
+                  <br/>
+                 <label htmlFor="lastName">Last Name</label>
+                 {/* <Field id="lastName" name="lastName" placeholder="Doe" /> }
+                 <input  name="lastName" onChange={handleChange}/>
+                 <br/>
+                 <br/>
+                 <label htmlFor="email">Email</label>
+                 { <Field
+                   id="email"
+                   name="email"
+                   placeholder="jane@acme.com"
+                   type="email"
+                 /> }
+                 <input  name="email" onChange={handleChange}/>
+         
+                 <br/>
+                 <br/>
+                 <span>male</span>
+                 <input type='radio' name="gender" value="male" onChange={handleChange}/>
+                 <span>female</span>
+                 <input type='radio' name="gender" value="female" onChange={handleChange}/>
+                 <br/>
+                 <br/>
+                 <button type="submit">Submit</button>
+                 <br/>
+                 <br/>
+                 <code>{JSON.stringify(values)}</code>
+               </form>
+               )}
+               
+             { </Formik> }
+            </div>
+           ); 
+         } 
+         ///useFormik///useFormik///useFormik///useFormik
+         const {formik,values,handleChange,handleSubmit} = useFormik({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      gender:""
+    },
+    onSubmit: values => {
+      console.log(values)
+    },
+  });
+  return(
+    <div>
+      <h1>Sign Up</h1>
+      <form onSubmit={handleSubmit}>
+    <label htmlFor="firstName">First Name</label>
+    <input  name="firstName" onChange={handleChange}/>
+     <br/>
+     <br/>
+    <label htmlFor="lastName">Last Name</label>
+    
+    <input  name="lastName" onChange={handleChange}/>
+    <br/>
+    <br/>
+    <label htmlFor="email">Email</label>
+    
+    <input  name="email" onChange={handleChange}/>
+
+    <br/>
+    <br/>
+    <span>male</span>
+    <input type='radio' name="gender" value="male" onChange={handleChange}/>
+    <span>female</span>
+    <input type='radio' name="gender" value="female" onChange={handleChange}/>
+    <br/>
+    <br/>
+    <button type="submit">Submit</button>
+    <br/>
+    <br/>
+    <code>{JSON.stringify(values)}</code>
+  </form>
+    </div>
+    
+  )*/
