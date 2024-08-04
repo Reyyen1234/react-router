@@ -1,15 +1,16 @@
 import React from 'react'
-import { number } from 'yup'
+/* import { number } from 'yup' */
 
-function Header() {
+function Header({increment}) {
     //biz app.js sasyisi artirttigimizda headerde guncelleniyor
     //gereksiz render sorun onune gecmek icin icin  React.memo(Header) KULLNIRIZ
     console.log("header component is re-render")
   return (
     <div>
-      Header -{number}
+      Header 
       <hr></hr>
-      <code>{JSON.stringify(data)}</code>
+      {/* <code>{JSON.stringify(number)}</code> */}
+      <button onClick={increment}>Click</button>
     </div>
   )
 }
